@@ -15,7 +15,7 @@ function App6() {
       if(value.length < 2){
           setFormErrors({
               username:"Lenght must be 6 character long",
-             
+              
           })
       }else{
           setFormErrors({
