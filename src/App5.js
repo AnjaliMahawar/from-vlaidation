@@ -9,6 +9,17 @@ function App5() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if(initialValues.email.value<11){
+      setFormErrors({
+        email:"email must be valid"
+      })
+    }
+     if(initialValues.email.value>11){
+      setFormErrors({
+        email:""
+      })
+    }
+    
     
 
     setFormValues({ ...formValues, [name]: value });
@@ -18,6 +29,7 @@ function App5() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    
   };   
 
  

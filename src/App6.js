@@ -9,7 +9,24 @@ function App6() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+    console.log(name,value)
+    if(name === 'username'){
+      console.log(value,value.length)         //ERROR MSG ONCHANGE
+      if(value.length < 2){
+          setFormErrors({
+              username:"Lenght must be 6 character long",
+             
+          })
+      }else{
+          setFormErrors({
+              username:""
+          })
+      }
+  }
+
+
+
+ 
 
     setFormValues({ ...formValues, [name]: value });
   };
@@ -34,7 +51,7 @@ function App6() {
       errors.email = "This is not a valid email format!";
     }
     if (!values.password) {
-      errors.password = "Password is required";
+      errors.password = "confirm Password is required";
     } 
     else if(!paswd.test(values.password)){
         errors.password="password should be contains numbers, letters, and special charecter"
@@ -49,7 +66,7 @@ function App6() {
         errors.Age="Age is required"
     }
     if(!values.cpassword){
-        errors.cpassword="please enter your password again"
+        errors.cpassword="please enter your password "
     }
     else if(values.cpassword!==values.password){
         errors.cpassword="password and confirm password should be same"
