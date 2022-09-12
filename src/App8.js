@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
-import "./App1.css";
 
-export default class App7 extends Component {
-    constructor(props){
-
-        super(props)
-           this.state={
-                username:"",
-                password:"",
-                email:"",
-                Mobile:"",
-                
-                error:{},
-                err:{}
-            }
-        }
-  
+export default class App8 extends Component {
+    state={
+        username:"",
+        password:"",
+        email:"",
+        Mobile:"",
+        
+        error:{},
+        err:{}
+    }
  onChange=(e)=>{
  
      this.setState({[e.target.name]:e.target.value})
@@ -32,19 +26,14 @@ export default class App7 extends Component {
             })
         }
         
-        */    console.log(e.target.name)
-        if((e.target.name)==='username'){
-            if(e.target.value.length<5){
-                this.state.err.user="must be 5 charecter long"
-              }
-              else{
-                this.state.err.user=""
-              }
-        }
-       //if(this.name==='username')
-      
-     
-      
+        */
+   
+      if(e.target.value.length<2){
+        this.state.err.user="must be 5 charecter long"
+      }
+      else{
+        this.state.err.user=""
+      }
  }
  fromValidation=()=>{
     const {username,password ,email,Mobile}=this.state;
@@ -83,7 +72,7 @@ export default class App7 extends Component {
     e.preventDefault()
     const isValid=this.fromValidation();
     if(isValid){
-        this.setState({username:'',password:"",email:"",Mobile:"",})
+        this.setState({username:'',password:"",email:"",Mobile:""})
     }
 
  }
@@ -91,9 +80,8 @@ export default class App7 extends Component {
   render() {
     const{username,password,error,email,usernameL2,Mobile,err}=this.state
     return (
-
-    <>  
-   <h1>From validation with RCC</h1>
+        <>
+        <h1 >FROM VALIDATION WITH RCC</h1>
      <form onSubmit={this.onSubmit}>
         <label>Name :</label>
         <input type="text"
@@ -102,9 +90,10 @@ export default class App7 extends Component {
         onChange={this.onChange}/>
         
         <br/>
-        <p>{err.user}</p>
+      
        <p> {error.usernameL} </p>
-        
+       <p>{err.user}</p>
+          <h6>{usernameL2}</h6>
         <label>password :</label>
         <input type="password"
         name='password'
@@ -132,7 +121,7 @@ export default class App7 extends Component {
         <button type='submit'>Login</button>
       
      </form>
-     </>   
+     </>
     )
   }
 }
